@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (v.getId()==R.id.fab) {
             //ambient temperature
 
-            envSense = senseManage.getDefaultSensor(Sensor.TYPE_AMBIENT_TEMPERATURE);
+            envSense = senseManage.getDefaultSensor(Sensor.TYPE_PRESSURE);
             if(envSense==null)
                 Toast.makeText(this.getApplicationContext(), "Sorry - your device doesn't have an " +
                         "ambient temperature sensor!", Toast.LENGTH_SHORT).show();
@@ -114,8 +114,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //check type
         int currType=event.sensor.getType();
         switch(currType){
-            case Sensor.TYPE_AMBIENT_TEMPERATURE:
-                envInfo=sensorValue+" degrees Celsius";
+            case Sensor.TYPE_PRESSURE:
+                envInfo = sensorValue + " (mha)";
                 currValue=valueFields[AMBIENT];
             default: break;
         }
