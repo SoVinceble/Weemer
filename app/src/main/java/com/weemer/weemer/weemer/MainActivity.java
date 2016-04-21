@@ -5,9 +5,9 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -18,11 +18,7 @@ import android.widget.Toast;
 import com.firebase.client.Firebase;
 import com.firebase.ui.FirebaseRecyclerAdapter;
 
-import java.math.RoundingMode;
-import java.text.DecimalFormat;
 import java.util.ArrayList;
-
-import static android.app.PendingIntent.getActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, SensorEventListener {
 
@@ -75,7 +71,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (v.getId()==R.id.fab) {
             //ambient temperature
 
-            envSense = senseManage.getDefaultSensor(Sensor.TYPE_TEMPERATURE);
+            envSense = senseManage.getDefaultSensor(Sensor.TYPE_AMBIENT_TEMPERATURE);
             if(envSense==null)
                 Toast.makeText(this.getApplicationContext(), "Sorry - your device doesn't have an " +
                         "ambient temperature sensor!", Toast.LENGTH_SHORT).show();
@@ -118,7 +114,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //check type
         int currType=event.sensor.getType();
         switch(currType){
-            case Sensor.TYPE_TEMPERATURE:
+            case Sensor.TYPE_AMBIENT_TEMPERATURE:
                 envInfo=sensorValue+" degrees Celsius";
                 currValue=valueFields[AMBIENT];
             default: break;
