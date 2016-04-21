@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Weemer</string>
+    <string name="dialog_add_item">Add an item</string>
+    <string name="dialog_add_button">Add</string>
+    <string name="dialog_add_message">Add item</string>
+
+    <!-- Firebase Reference Paths -->
+    <string name="path_items">items</string>
+
+    <string name="ambient_label">Ambient Temperature</string>
+    <string name="light_label">Light</string>
+    <string name="pressure_label">Pressure</string>
+    <string name="humidity_label">Relative Humidity</string>
+    <string name="text_placeholder">-</string>
+</resources>
